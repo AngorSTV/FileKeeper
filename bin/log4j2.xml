@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %level{length=1} %logger{1} - %msg%n"/>
+    </Console>
+    
+    <File name="File" fileName="FileKeeper.log">
+      <PatternLayout pattern="%d{dd MMM yyyy HH:mm:ss.SSS} [%t] %level{length=1} %logger{1} - %msg%n"/>
+    </File>
+  </Appenders>
+
+  <Loggers>
+    <Root level="info">
+      <AppenderRef ref="Console"/>
+      <AppenderRef ref="File"/>
+    </Root>
+  </Loggers>
+
+</Configuration>
