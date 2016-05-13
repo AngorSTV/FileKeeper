@@ -97,11 +97,11 @@ public class FileKeeper extends JFrame {
 		this.setBounds(100, 100, 537, 530);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		image = Toolkit.getDefaultToolkit().getImage(FileKeeper.class.getResource("images/file-keeper-icon.png"));
+		/*image = Toolkit.getDefaultToolkit().getImage(FileKeeper.class.getResource("images/file-keeper-icon.png"));
 		imageList.add(image);
 
 		image = Toolkit.getDefaultToolkit().getImage(FileKeeper.class.getResource("images/file-keeper-32-icon.png"));
-		imageList.add(image);
+		imageList.add(image);*/
 
 		this.setIconImages(imageList);
 
