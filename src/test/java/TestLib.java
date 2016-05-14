@@ -1,11 +1,10 @@
-package filekeeper;
-
-import static org.junit.Assert.assertEquals;
+import filekeeper.Lib;
+import org.junit.Test;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 public class TestLib {
 

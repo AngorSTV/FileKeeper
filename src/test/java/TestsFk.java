@@ -1,9 +1,8 @@
-package filekeeper;
+import filekeeper.Task;
+import org.junit.Test;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
-
-import org.junit.Test;
 
 public class TestsFk {
 

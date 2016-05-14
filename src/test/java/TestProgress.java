@@ -1,13 +1,12 @@
-package filekeeper;
-
-import static org.junit.Assert.assertEquals;
-
+import filekeeper.Progress;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+
 public class TestProgress {
 
-	Progress	p	= new Progress();
+	Progress p	= new Progress();
 
 	@Before
 	public void setupClass() {

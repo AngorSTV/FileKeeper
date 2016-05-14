@@ -1,5 +1,16 @@
 package filekeeper;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigInteger;
@@ -10,18 +21,6 @@ import java.security.DigestInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.w3c.dom.Document;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
 
 public class Lib {
 
@@ -63,6 +62,13 @@ public class Lib {
 
 	}
 
+	/**
+	 * Сравнение двух файлов двумя вариантами, медленным но очень надёжным и быстрым но с низкой надёжностью.
+	 * @param source путь к файлу образцу
+	 * @param dest путь к проверяемому файлу
+	 * @param fastMode <b>true</b> быстрый режим с низкой надёжностью
+	 * @return
+	 */
 	public static boolean isSameFile(Path source, Path dest, boolean fastMode) {
 
 		// проверка на наличие файла назначения
@@ -98,6 +104,11 @@ public class Lib {
 		return false;
 	}
 
+	/**
+	 * Подсчёт хэш суммы по всему файлу по алгоритму SHA-256
+	 * @param fileName
+	 * @return
+	 */
 	private static String doHash(Path fileName) {
 		MessageDigest md = null;
 		try {
