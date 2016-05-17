@@ -12,8 +12,8 @@ import java.util.ArrayList;
 
 public class FileKeeper extends JFrame {
 
-	final static String			version				= "1.1.2";
-	final static Integer		build				= 4;
+	final static String			version				= "2.0.0";
+	final static Integer		build				= 5;
 	private static final long	serialVersionUID	= 1L;
 	private Logger				log					= LoggerFactory.getLogger(FileKeeper.class);
 	private ArrayList<Task>		taskList			= new ArrayList<>();
@@ -27,9 +27,9 @@ public class FileKeeper extends JFrame {
 	private JTable				table;
 
 	public FileKeeper() {
-		ArrayList<DirWatcher> dwList = new ArrayList<DirWatcher>();
+		ArrayList<DirWatcher> dwList = new ArrayList<>();
 
-		log.info("Start GUI version.");
+		log.info("Start GUI version." + version);
 
 		if (fileXmlTasks.toFile().exists()) {
 			taskList = Lib.readXml(fileXmlTasks);
@@ -88,20 +88,19 @@ public class FileKeeper extends JFrame {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		ArrayList<Image> imageList = new ArrayList<Image>();
-		Image image;
+		ArrayList<Image> imageList = new ArrayList<>();
 
-		this.setTitle("File Keeper " + FileKeeper.version);
+        this.setTitle("File Keeper " + FileKeeper.version);
 		this.setResizable(false);
 		this.setOpacity(1.0f);
 		this.setBounds(100, 100, 537, 530);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		/*image = Toolkit.getDefaultToolkit().getImage(FileKeeper.class.getResource("images/file-keeper-icon.png"));
+		Image image = new ImageIcon("images/file-keeper-icon.png").getImage();
 		imageList.add(image);
 
-		image = Toolkit.getDefaultToolkit().getImage(FileKeeper.class.getResource("images/file-keeper-32-icon.png"));
-		imageList.add(image);*/
+		image = new ImageIcon("images/file-keeper-32-icon.png").getImage();
+		imageList.add(image);
 
 		this.setIconImages(imageList);
 
@@ -167,7 +166,7 @@ public class FileKeeper extends JFrame {
 
 	private void setUpTrayIcon() {
 
-		Image image = Toolkit.getDefaultToolkit().getImage(FileKeeper.class.getResource("images/file-keeper-icon.png"));
+		Image image = new ImageIcon("images/file-keeper-icon.png").getImage();
 
 		PopupMenu popup = new PopupMenu();
 

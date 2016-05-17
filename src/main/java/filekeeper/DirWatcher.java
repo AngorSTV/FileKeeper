@@ -45,7 +45,7 @@ public class DirWatcher extends Thread {
 			});
 
 		} catch (IOException e1) {
-			e1.printStackTrace();
+			log.debug(e1.getMessage());
 		}
 		// Бесконечный цикл
 		while (listen) {
@@ -54,7 +54,7 @@ public class DirWatcher extends Thread {
 				// точка останова, ждем когда прийдёт обратный вызов
 				key = watchService.take();
 			} catch (InterruptedException e) {
-				e.printStackTrace();
+                log.debug(e.getMessage());
 			}
 			// Итерации для каждого события
 			for (WatchEvent<?> event : key.pollEvents()) {

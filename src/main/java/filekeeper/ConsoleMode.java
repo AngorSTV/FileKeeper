@@ -24,7 +24,8 @@ public class ConsoleMode {
 		log.info("Is runing.");
 		int argi = 0;
 
-		while (argi < args.length) {
+		// разбор коммандной строки
+        while (argi < args.length) {
 			String arg = args[argi];
 			if (arg.equals("-s")) {
 				source = Paths.get(args[argi + 1]);

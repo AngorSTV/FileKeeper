@@ -30,7 +30,13 @@ public class Task {
 	public Progress			progress	= new Progress();
 	private static Logger	log			= LoggerFactory.getLogger(Task.class);
 
-	public Task(Path source, Path dest, Boolean fastMode) {
+    /**
+     * Задача на синхронизацию и очистку каталога назначения согласно каталогу источнику.
+     * @param source каталог источник (образец)
+     * @param dest   каталог назначения
+     * @param fastMode режим сравнения файлов <b>true</b> -быстрый но не однозначный <b>false</b> - медленный но надёжный
+     */
+    public Task(Path source, Path dest, Boolean fastMode) {
 		this.source = source;
 		this.dest = dest;
 		this.fastMode = fastMode;
@@ -41,8 +47,11 @@ public class Task {
 		this.isRuning = false;
 	}
 
-	public void sync() {
-		System.out.println("Start to count files.");
+    /**
+     * Синхронизация каталога назначения с каталогом источником.
+     */
+    public void sync() {
+		log.info("Start to count files.");
 		isRuning = true;
 		progress.reset();
 		progress.setMaxValue(getFileNamber(source));
@@ -58,9 +67,12 @@ public class Task {
 		isRuning = false;
 	}
 
-	public void clear() {
-		// удаление в dest файлов и каталогов отсутствующих в source
-		System.out.println("Start to count files.");
+    /**
+     * Удаление в dest файлов и каталогов отсутствующих в source
+     */
+    public void clear() {
+
+		log.info("Start to count files.");
 		isRuning = true;
 		progress.reset();
 		progress.setMaxValue(getFileNamber(dest.resolve(source.getFileName())));
@@ -76,7 +88,12 @@ public class Task {
 		isRuning = false;
 	}
 
-	private long getFileNamber(Path dir) {
+    /**
+     * Подсчёт количества файлов в каталоге с учётом вложенности
+     * @param dir
+     * @return кол-во файлов
+     */
+    private long getFileNamber(Path dir) {
 		EnumSet<FileVisitOption> opts = EnumSet.of(FileVisitOption.FOLLOW_LINKS);
 		Count c = new Count();
 		try {
@@ -87,7 +104,12 @@ public class Task {
 		return Count.value;
 	}
 
-	static void copyFile(Path source, Path target) {
+    /**
+     * Копирование файла
+     * @param source
+     * @param target
+     */
+    static void copyFile(Path source, Path target) {
 		CopyOption[] options = new CopyOption[] { COPY_ATTRIBUTES, REPLACE_EXISTING };
 		try {
 			Files.copy(source, target, options);
