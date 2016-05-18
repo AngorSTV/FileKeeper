@@ -82,21 +82,21 @@ public class Lib {
             return false;
         }
 
-        if (fastMode) {
-            try {
-                if (Files.getLastModifiedTime(source).equals(Files.getLastModifiedTime(dest))) {
+        try {
+            if (Files.getLastModifiedTime(source).equals(Files.getLastModifiedTime(dest))) {
+                if (!fastMode) {
+                    String sourceSHA = doHash(source);
+                    String destSHA = doHash(dest);
+                    if (sourceSHA.equals(destSHA)) {
+                        return true;
+                    }
+                } else {
                     return true;
                 }
-            } catch (IOException e) {
-                log.debug(e.getMessage());
-                return false;
             }
-        } else {
-            String sourceSHA = doHash(source);
-            String destSHA = doHash(dest);
-            if (sourceSHA.equals(destSHA)) {
-                return true;
-            }
+        } catch (IOException e) {
+            log.debug(e.getMessage());
+            return false;
         }
         return false;
     }
