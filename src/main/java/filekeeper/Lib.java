@@ -27,7 +27,7 @@ public class Lib {
     private static Logger log = LoggerFactory.getLogger(Lib.class);
 
     public static ArrayList<Task> readXml(Path file) {
-        ArrayList<Task> taskList = new ArrayList<Task>();
+        ArrayList<Task> taskList = new ArrayList<>();
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder;
 
@@ -50,11 +50,7 @@ public class Lib {
                 }
                 taskList.add(task);
             }
-        } catch (ParserConfigurationException e) {
-            log.error(e.getLocalizedMessage());
-        } catch (SAXException e) {
-            log.error(e.getLocalizedMessage());
-        } catch (IOException e) {
+        } catch (ParserConfigurationException | SAXException | IOException e) {
             log.error(e.getLocalizedMessage());
         }
 

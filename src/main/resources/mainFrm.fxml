@@ -29,16 +29,9 @@
       </MenuBar>
       <VBox layoutX="166.0" layoutY="57.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
          <children>
-            <ToolBar prefHeight="40.0">
-              <items>
-                <Button mnemonicParsing="false" text="Button" />
-              </items>
+            <ToolBar fx:id="toolBar" prefHeight="40.0">
             </ToolBar>
-            <TableView>
-              <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
-              </columns>
+            <TableView fx:id="tableView">
             </TableView>
          </children>
       </VBox>

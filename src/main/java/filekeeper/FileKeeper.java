@@ -17,7 +17,7 @@ public class FileKeeper extends JFrame {
 	private static final long	serialVersionUID	= 1L;
 	private Logger				log					= LoggerFactory.getLogger(FileKeeper.class);
 	private ArrayList<Task>		taskList			= new ArrayList<>();
-	private Path				fileXmlTasks		= Paths.get("tasks.xml");
+	public static Path			fileXmlTasks		= Paths.get("tasks.xml");
 
 	private SystemTray			tray;
 	private TrayIcon			trayIcon;
