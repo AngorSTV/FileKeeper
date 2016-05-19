@@ -12,8 +12,8 @@ import java.util.ArrayList;
 
 public class FileKeeper extends JFrame {
 
-	final static String			version				= "2.0.0";
-	final static Integer		build				= 5;
+	public final static String			version				= "2.0.0";
+	public final static Integer		build				= 5;
 	private static final long	serialVersionUID	= 1L;
 	private Logger				log					= LoggerFactory.getLogger(FileKeeper.class);
 	private ArrayList<Task>		taskList			= new ArrayList<>();
@@ -225,7 +225,8 @@ public class FileKeeper extends JFrame {
 			cm.run();
 			System.exit(0);
 		}
-		FileKeeper fileKeeper = new FileKeeper();
-		fileKeeper.setVisible(true);
+		/*FileKeeper fileKeeper = new FileKeeper();
+		fileKeeper.setVisible(true);*/
+        FX.Main.main(null);
 	}
 }
